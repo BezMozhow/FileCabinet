@@ -13,7 +13,6 @@ class DocsController < ApplicationController
     end 
 
     def create
-        
         @doc = Doc.new(doc_params)        
 
         if @doc.save
@@ -21,20 +20,25 @@ class DocsController < ApplicationController
         else
             render 'new'
         end
-
     end
 
-    def update 
-    end
-    
     def edit
     end 
 
+    def update
+        if @doc.update(doc_params)
+            redirect_to @doc
+        else
+            render 'edit'
+        end
+    end
+
     def destroy 
+        @doc.destroy
+        redirect_to docs_path
     end
     
 
-    
     private
 
     def find_doc

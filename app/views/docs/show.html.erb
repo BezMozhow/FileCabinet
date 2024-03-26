@@ -1,7 +1,11 @@
 <h1>Show</h1>
 
-
-
 <h3><%= @doc.title %></h3>
-
 <div class="content"> <%= @doc.content%> </div>
+
+
+<%= link_to "All Docs", docs_path %>
+<br>
+<%= link_to "Change Doc", edit_doc_path %>
+<br>
+<%= link_to "Delete Doc", doc_path(@doc), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
