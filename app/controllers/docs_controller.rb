@@ -45,7 +45,6 @@ class DocsController < ApplicationController
         @doc = Doc.find(params[:id])        
     end
     
-
     def doc_params
         params.require(:doc).permit(:title, :content) 
     end
